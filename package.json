@@ -1,0 +1,29 @@
+{
+  "name": "babel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0"
+  },
+  "scripts": {
+    "build": "babel src -d dist",
+    "watch": "babel index.js -o test.js -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergeySaltykov/babel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SergeySaltykov/babel/issues"
+  },
+  "homepage": "https://github.com/SergeySaltykov/babel#readme"
+}
