@@ -1,3 +1,5 @@
+import '@babel/polyfill';
+
 const test = message => console.log('babel test');
 
 test();
