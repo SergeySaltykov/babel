@@ -6,8 +6,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
 
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
@@ -18,6 +16,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -27,11 +29,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var Main =
 /*#__PURE__*/
 function () {
-  function Main(title) {
+  function Main(title, firstName) {
     _classCallCheck(this, Main);
 
     this.title = title;
     this.done = false;
+    this.firstName = firstName;
   }
 
   _createClass(Main, [{
@@ -39,6 +42,11 @@ function () {
     value: function test() {
       this.done = true;
       console.log("".concat(this.title, " done"));
+    }
+  }], [{
+    key: "getFirstName",
+    value: function getFirstName() {
+      return new Main('Sergey');
     }
   }]);
 
@@ -50,28 +58,56 @@ var Task =
 function (_Main) {
   _inherits(Task, _Main);
 
-  function Task(title) {
+  function Task() {
+    var _this;
+
     _classCallCheck(this, Task);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Task).call(this, title));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Task).call(this));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "fu", function () {
+      return {
+        firstName: 'Sergey',
+        lastName: 'Saltykov',
+        company: 'US'
+      };
+    });
+
+    return _this;
   }
 
   _createClass(Task, [{
     key: "complete",
     value: function complete(value) {
+      // просто экспериментировал с наследованием.
       _get(_getPrototypeOf(Task.prototype), "test", this).call(this);
 
       return value;
+    }
+  }], [{
+    key: "sum",
+    value: function sum(a, b) {
+      return a + b;
     }
   }]);
 
   return Task;
 }(Main);
 
+_defineProperty(Task, "age", 25);
+
+_defineProperty(Task, "year", 2019);
+
 var main = new Main('Пробный класс');
 var task = new Task();
+var getName = Main.getFirstName();
 main.test();
 task.test();
 task.complete(22);
+console.log(getName.firstName);
+console.log(Task.sum(4, 8));
+task.fu();
+console.log(Task.year);
+console.log(Task.age);
 (0, _index.test)();
 (0, _index.testMap)();
