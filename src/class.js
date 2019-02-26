@@ -1,34 +1,44 @@
-import {test, testMap} from 'index';
+import {foo} from 'src/index';
 
-class Main {
-    constructor(title) {
-        this.title = title;
-        this.done = false;
+class Task {
+
+    async getJsonData() {
+        const data = foo();
+
+        return data
+            .then(({data}) => console.log(data))
+            .catch(() => console.log('Error'));
     }
 
-    test() {
-        this.done = true;
-        console.log(`${this.title} done`);
+    async getList() {
+        const test = await foo();
+        console.log(test.data);
+        return test.data;
+    }
+
+    async getList() {
+        const test = await foo();
+        console.log(test.data);
+        return test.data;
+    }
+
+    async testTryChatch() {
+        try {
+            const test = await foo();
+                await qwerty();
+            console.log(test.data);
+        } catch (e) {
+            console.error('error');
+        }
     }
 }
 
-class Task extends Main {
-    constructor(title) {
-        super(title);
-    }
+(async() => {
+   console.log(await foo());
+})();
 
-    complete(value){
-        super.test();
-        return value;
-    }
-}
-
-const main = new Main('Пробный класс');
 const task = new Task();
 
-main.test();
-task.test();
-task.complete(22);
-
-test();
-testMap();
+task.getList();
+task.testTryChatch();
+task.getJsonData();
