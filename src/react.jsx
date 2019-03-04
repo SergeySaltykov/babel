@@ -2,12 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const description = 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.';
-const title = 'src';
-const img = 'src';
-const icon = 'class';
 const element = <div>Проверка</div>;
 
-function TestComponent({contactName, contactEmail}) {
+function TestComponent({contactName, contactEmail, icon, img, title}) {
     return (
         <div className="test">
             <h1>{title}</h1>
@@ -26,11 +23,9 @@ function TestComponent({contactName, contactEmail}) {
 }
 
 TestComponent.defaultProps = {
-    description,
-    element,
-    icon,
-    img,
-    title,
+    icon: 'src',
+    img: 'src',
+    title: 'src',
 };
 
 TestComponent.propTypes = {
