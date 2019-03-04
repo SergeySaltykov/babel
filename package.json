@@ -2,19 +2,23 @@
   "name": "babel",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "dependencies": {
-    "@babel/polyfill": "^7.2.5"
+    "@babel/polyfill": "^7.2.5",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0"
   },
   "scripts": {
     "build": "babel src -d dist",
-    "watch": "babel index.js -o test.js -w"
+    "watch": "babel src/watch.js -w -o watch.js ",
+    "all": "babel src -o dist/all.js"
   },
   "repository": {
     "type": "git",

@@ -63,7 +63,7 @@ function _foo() {
             return _context.stop();
         }
       }
-    }, _callee, this);
+    }, _callee);
   }));
   return _foo.apply(this, arguments);
 }
