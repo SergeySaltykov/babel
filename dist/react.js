@@ -31,15 +31,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var description = 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.';
-var title = 'src';
-var img = 'src';
-var icon = 'class';
 
 var element = _react.default.createElement("div", null, "\u041F\u0440\u043E\u0432\u0435\u0440\u043A\u0430");
 
 function TestComponent(_ref) {
   var contactName = _ref.contactName,
-      contactEmail = _ref.contactEmail;
+      contactEmail = _ref.contactEmail,
+      icon = _ref.icon,
+      img = _ref.img,
+      title = _ref.title;
   return _react.default.createElement("div", {
     className: "test"
   }, _react.default.createElement("h1", null, title), _react.default.createElement("p", null, description, _react.default.createElement("i", {
@@ -53,11 +53,9 @@ function TestComponent(_ref) {
 }
 
 TestComponent.defaultProps = {
-  description: description,
-  element: element,
-  icon: icon,
-  img: img,
-  title: title
+  icon: 'src',
+  img: 'src',
+  title: 'src'
 };
 TestComponent.propTypes = {
   contactEmail: _propTypes.default.string,

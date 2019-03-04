@@ -28,7 +28,7 @@ function _main() {
             return _context.stop();
         }
       }
-    }, _callee, this);
+    }, _callee);
   }));
   return _main.apply(this, arguments);
 }
