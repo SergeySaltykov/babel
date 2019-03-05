@@ -1,5 +1,28 @@
-import {test, testMap} from 'index';
-import {foo} from 'src/index';
+async function foo() {
+    const data = {
+        data: [
+            {
+                type: 'articles',
+                id: 1,
+                attributes: {
+                    title: "JSON:API",
+                    link: "#",
+                },
+            },
+            {
+                type: 'people',
+                id: 2,
+                attributes: {
+                    firstName: "Ivan",
+                    lastName: "Ivanov",
+                    link: "#",
+                },
+            },
+        ]
+    };
+
+    return data;
+}
 
 class Main {
     constructor(title, firstName) {
@@ -51,9 +74,6 @@ console.log(Task.sum(4, 8));
 task.fu();
 console.log(Task.year);
 console.log(Task.age);
-
-test();
-testMap();
 
 class AsyncAwait {
 
